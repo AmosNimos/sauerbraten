@@ -559,7 +559,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "echo build dir = $TARGET_BUILD_DIR\ncd \"$TARGET_BUILD_DIR\"\n\n#ensure old package is gone\nrm -f sauerbraten.dmg\n\n#make the directory which our disk image will be made of\n#use /tmp as a destination because copying ourself (xcode folder) whilst compiling causes the dog to chase its tail\nSAUERPKG=`mktemp -d /tmp/sauerpkg.XXXXXX` || exit 1\n\n#leave indicator of where temp directory is in case things break\nln -sf \"$SAUERPKG\" \"$TARGET_BUILD_DIR/sauerpkg\"\n\n#copy executable\nCpMac -r \"$TARGET_BUILD_DIR/sauerbraten.app\" \"$SAUERPKG/Sauerbraten.app\"\nstrip -u -r \"$SAUERPKG/Sauerbraten.app/Contents/MacOS/sauerbraten\"\n\nGAMEDIR=\"$SAUERPKG/Sauerbraten.app/Contents/gamedata\"\nmkdir \"$GAMEDIR\"\n\n#copy readme and data and remove unneccesary stuff\nCpMac -r \"$SRCROOT/../../README.html\" \"$SAUERPKG/\"\nCpMac -r \"$SRCROOT/../../docs\" \"$SAUERPKG/\"\nCpMac -r \"$SRCROOT/../../data\" \"$GAMEDIR/\"\nCpMac -r \"$SRCROOT/../../packages\" \"$GAMEDIR/\"\nCpMac -r \"$SRCROOT/../../server-init.cfg\" \"$GAMEDIR/\"\nCpMac -r \"$SRCROOT/../../src\" \"$SAUERPKG/sourcecode\"\nfind -d \"$SAUERPKG\" -name \".svn\" -exec rm -rf {} \\;\nfind \"$SAUERPKG\" -name \".DS_Store\" -exec rm -f {} \\;\nrm -rf \"$SAUERPKG/sourcecode/xcode/build\"\n\n#finally make a disk image out of the stuff\necho creating dmg\nhdiutil create -srcfolder \"$SAUERPKG\" -volname sauerbraten sauerbraten.dmg\nhdiutil internet-enable -yes sauerbraten.dmg\n\n#cleanup\nrm -rf \"$SAUERPKG\"\n";
+			shellScript = "echo build dir = $TARGET_BUILD_DIR\ncd \"$TARGET_BUILD_DIR\"\n\n#ensure old package is gone\nrm -f sauerbraten.dmg\n\n#make the directory which our disk image will be made of\n#use /tmp as a destination because copying ourself (xcode folder) whilst compiling causes the dog to chase its tail\nSAUERPKG=`mktemp -d /tmp/sauerpkg.XXXXXX` || exit 1\n\n#leave indicator of where temp directory is in case things break\nln -sf \"$SAUERPKG\" \"$TARGET_BUILD_DIR/sauerpkg\"\n\n#copy executable\ncp -r \"$TARGET_BUILD_DIR/sauerbraten.app\" \"$SAUERPKG/Sauerbraten.app\"\nstrip -u -r \"$SAUERPKG/Sauerbraten.app/Contents/MacOS/sauerbraten\"\n\nGAMEDIR=\"$SAUERPKG/Sauerbraten.app/Contents/gamedata\"\nmkdir \"$GAMEDIR\"\n\n#copy readme and data and remove unneccesary stuff\ncp -r \"$SRCROOT/../../README.html\" \"$SAUERPKG/\"\ncp -r \"$SRCROOT/../../docs\" \"$SAUERPKG/\"\ncp -r \"$SRCROOT/../../data\" \"$GAMEDIR/\"\ncp -r \"$SRCROOT/../../packages\" \"$GAMEDIR/\"\ncp -r \"$SRCROOT/../../server-init.cfg\" \"$GAMEDIR/\"\ncp -r \"$SRCROOT/../../src\" \"$SAUERPKG/sourcecode\"\nfind -d \"$SAUERPKG\" -name \".svn\" -exec rm -rf {} \\;\nfind \"$SAUERPKG\" -name \".DS_Store\" -exec rm -f {} \\;\nrm -rf \"$SAUERPKG/sourcecode/xcode/build\"\n\n#finally make a disk image out of the stuff\necho creating dmg\nhdiutil create -srcfolder \"$SAUERPKG\" -volname sauerbraten sauerbraten.dmg\nhdiutil internet-enable -yes sauerbraten.dmg\n\n#cleanup\nrm -rf \"$SAUERPKG\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -669,9 +669,6 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = HAS_SOCKLEN_T;
 				HEADER_SEARCH_PATHS = (
@@ -698,9 +695,6 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = HAS_SOCKLEN_T;
 				HEADER_SEARCH_PATHS = (
@@ -731,9 +725,6 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/Frameworks\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = HAS_SOCKLEN_T;
 				HEADER_SEARCH_PATHS = (
