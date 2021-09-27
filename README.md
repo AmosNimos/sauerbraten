@@ -23,6 +23,7 @@ You will want to read (roughly this order):
 *   [Models](docs/models.html): How to put models into the game.
 *   [History](docs/history.html): For seeing latest changes.
 *   [Example RPG Game Information](docs/rpg.html): Information on running, building, or scripting the example RPG game.
+*   [local LAN server](doc/lan)
 
 ## The Wiki
 
