@@ -102,6 +102,7 @@ Cube 2: Sauerbraten is an open source project, and maintains constant developmen
 <div class="credits">Sound / Music</div>
 
 *   _Marc "Fanatic" A. Pullen_: Soundtrack.
+> The complete soundtrack can be found in Package/fanatic
 
 <div class="credits">Other</div>
 
