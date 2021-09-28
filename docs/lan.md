@@ -14,8 +14,12 @@ sauerbraten
 ~~~
 
 4. connect client to server
+> YOu can also do it manually from the game UI.
 ~~~
 /connect YOUR_LOCAL_IP
 ~~~
 
+5 load map
+~~~
 /map MAP_NAME
+~~~
