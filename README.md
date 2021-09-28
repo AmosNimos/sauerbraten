@@ -1,3 +1,4 @@
+![ Cube 2: Sauerbraten](https://upload.wikimedia.org/wikipedia/commons/f/f7/Sauerbraten_logo.png)
 # Cube 2: Sauerbraten
 
 ## Links
